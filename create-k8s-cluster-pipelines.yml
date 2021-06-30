@@ -17,16 +17,17 @@ steps:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
     backendType: 'azurerm'
-    backendServiceArm: 'azure-service-connection'
+    backendServiceArm: 'prod-00-network-spn'
     ensureBackend: true
-    backendAzureRmResourceGroupName: 'backend-rg'
-    backendAzureRmResourceGroupLocation: 'eastus'
-    backendAzureRmStorageAccountName: 'storageacctnamexm1'
-    backendAzureRmContainerName: 'storageaccntcon'
+    backendAzureRmResourceGroupName: 'cloud-shell-storage-southcentralus'
+    backendAzureRmResourceGroupLocation: 'South Central US'
+    backendAzureRmStorageAccountName: 'cs710037ffeaa055e81'
+    backendAzureRmContainerName: 'tfstatefile'
     backendAzureRmKey: 'k8.tfstate'
+    
 - task: TerraformCLI@0
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
-    environmentServiceName: 'azure-service-connection'
+    environmentServiceName: 'prod-00-network-spn'
     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
