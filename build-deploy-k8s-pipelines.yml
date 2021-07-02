@@ -18,7 +18,7 @@ stages:
     steps:
     - task: Docker@2
       inputs:
-        containerRegistry: 'docker-registry'
+        containerRegistry: 'docker_hub'
         repository: 'kousikm/hello_rest_api'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
@@ -50,7 +50,9 @@ stages:
     - task: KubernetesManifest@0
       inputs:
         action: 'deploy'
-        kubernetesServiceConnection: 'k8s-service-connection'
+        kubernetesServiceConnection: 'AKS-k8scluster-svc'
         namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/configuration/k8s/deployment.yaml'
         containers: 'kousikm/hello_rest_api:$(tag)'
+    
+    
