@@ -20,7 +20,7 @@ steps:
     backendServiceArm: 'prod-00-network-spn'
     ensureBackend: true
     backendAzureRmResourceGroupName: 'cloud-shell-storage-southcentralus'
-    backendAzureRmResourceGroupLocation: 'South Central US'
+    backendAzureRmResourceGroupLocation: 'southcentralus'
     backendAzureRmStorageAccountName: 'cs710037ffeaa055e81'
     backendAzureRmContainerName: 'tfstatefile'
     backendAzureRmKey: 'k8.tfstate'
