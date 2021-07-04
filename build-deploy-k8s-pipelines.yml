@@ -19,10 +19,11 @@ stages:
     - task: Docker@2
       inputs:
         containerRegistry: 'docker_hub'
-        repository: 'kousikm/hello_rest_api'
+        repository: 'iheanacho/hello_rest_api'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
+    
     - task: CopyFiles@2
       inputs:
         SourceFolder: '$(System.DefaultWorkingDirectory)'
@@ -53,6 +54,6 @@ stages:
         kubernetesServiceConnection: 'AKS-k8scluster-svc'
         namespace: 'default'
         manifests: '$(System.ArtifactsDirectory)/configuration/k8s/deployment.yaml'
-        containers: 'kousikm/hello_rest_api:$(tag)'
+        containers: 'iheanacho/hello_rest_api:$(tag)'
     
     
