@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-api
-        image: kousikm/hello_rest_api
+        image: iheanacho/hello_rest_api
 ---        
 apiVersion: v1
 kind: Service
