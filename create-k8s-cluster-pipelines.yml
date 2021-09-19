@@ -13,6 +13,7 @@ steps:
     secureFile: 'azure_rsa.pub'
 
 - task: TerraformCLI@0
+  name: TerraformInit
   inputs:
     command: 'init'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
@@ -32,6 +33,7 @@ steps:
 #     publishLocation: 'Container'
 
 - task: TerraformCLI@0
+  name: TerraformApply
   inputs:
     command: 'apply'
     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
