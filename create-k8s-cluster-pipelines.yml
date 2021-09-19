@@ -44,5 +44,6 @@ steps:
   name: TerraformDestroy
   inputs:
     command: 'destroy'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
     environmentServiceName: 'prod-00-network-spn'
-    allowTelemetryCollection: true
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
