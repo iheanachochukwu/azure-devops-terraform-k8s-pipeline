@@ -21,7 +21,7 @@ steps:
     ensureBackend: true
     backendAzureRmResourceGroupName: 'myResourceGroup'
     backendAzureRmResourceGroupLocation: 'eastus'
-    backendAzureRmStorageAccountName: 'mystorageaccount'
+    backendAzureRmStorageAccountName: 'terraformsastore'
     backendAzureRmContainerName: 'tfstate'
     backendAzureRmKey: 'k8.tfstate'
 
