@@ -34,18 +34,18 @@ steps:
 #     ArtifactName: 'drop-k8s'
 #     publishLocation: 'Container'
 
-- task: TerraformCLI@0
-  name: TerraformApply
-  inputs:
-    command: 'apply'
-    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
-    environmentServiceName: 'prod-00-network-spn'
-    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
-
 # - task: TerraformCLI@0
-#   name: TerraformDestroy
+#   name: TerraformApply
 #   inputs:
-#     command: 'destroy'
+#     command: 'apply'
 #     workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
 #     environmentServiceName: 'prod-00-network-spn'
 #     commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
+
+- task: TerraformCLI@0
+  name: TerraformDestroy
+  inputs:
+    command: 'destroy'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/configuration/iaac/azure'
+    environmentServiceName: 'prod-00-network-spn'
+    commandOptions: '-var client_id=$(client_id) -var client_secret=$(client_secret) -var ssh_public_key=$(publickey.secureFilePath)'
