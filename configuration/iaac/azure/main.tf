@@ -4,7 +4,7 @@ terraform {
     storage_account_name = "terraformsastore"
     container_name       = "tfstate"
     key                  = "k8.tfstate"
-    access_key = "3Z39FcSFo607a94o5JD4e1S6/i0qj4/2SxtRaK9V4lCZThLoJWexwwAEdMG9i3cmP8YibD1o9K5Aqd7EwEBGqA=="
+    access_key = "qY24/nqGp3tgSyrPCTYJ7AUmb/fMbwylYCYkkFGmnO5D2Hm7Hl+3Nei3XfmGmaEorgHLYsAHQKMrl/2IqwZs6Q=="
   }
   required_providers {
     azurerm = {
